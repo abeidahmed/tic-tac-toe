@@ -3,6 +3,7 @@ require_relative '../lib/game'
 require_relative '../lib/player'
 require_relative '../lib/board'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe Game do
   let(:player_x) { Player.new('John', 'x') }
   let(:player_o) { Player.new('Maggie', 'o') }
@@ -53,3 +54,4 @@ RSpec.describe Game do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
