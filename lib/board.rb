@@ -1,6 +1,8 @@
 require 'byebug'
 
 class Board
+  attr_reader :player_x_turn
+
   def initialize
     @board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
     @player_x_turn = true
@@ -12,25 +14,29 @@ class Board
   def play_turn_and_swap(selection)
     return false unless valid_play?(selection)
 
-    return false if already_taken?(selection)
+    coord = get_cord_from_selection(selection)
+    return false if already_taken?(coord)
 
-    # to get the selection
-    # num < 4 it should be [0, num - 1]
-    # num < 7 it should be [1, num - 4]
-    # num <= 9 it should be [2, num - 7]
+    if player_x_turn
+      mark_it_for(coord, with: 'x')
+      @player_x_selections << selection
+    else
+      mark_it_for(coord, with: 'o')
+      @player_o_selections << selection
+    end
 
+    swap_turn
     true
   end
 
   private
 
-  def already_taken?(selection)
-    get_item_from_selection(selection).is_a?(String)
+  def mark_it_for(coord, with:)
+    @board[coord.first][coord.last] = with
   end
 
-  def get_item_from_selection(selection)
-    coordinate = get_cord_from_selection(selection)
-    @board[coordinate.first][coordinate.last]
+  def already_taken?(coordinate)
+    @board[coordinate.first][coordinate.last].is_a?(String)
   end
 
   def get_cord_from_selection(selection)
@@ -45,5 +51,9 @@ class Board
 
   def valid_play?(selection)
     selection.positive? && selection <= 9
+  end
+
+  def swap_turn
+    @player_x_turn = !@player_x_turn
   end
 end
