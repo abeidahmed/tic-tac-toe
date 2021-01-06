@@ -1,5 +1,5 @@
 class Board
-  attr_reader :player_x_turn
+  attr_reader :player_x_turn, :game_over
 
   def initialize
     @board = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
