@@ -8,11 +8,11 @@ EXIT_KEY = 'q'.freeze
 def register_player_for(player_name)
   puts "Please enter Player #{player_name}'s name"
 
-  player_name = gets.chomp.strip
+  player_name = gets.chomp.to_s.strip
 
   while player_name.empty?
     puts 'Please enter a valid name'
-    player_name = gets.chomp
+    player_name = gets.chomp.to_s
   end
 
   player_name
@@ -24,7 +24,7 @@ puts ''
 puts 'Before we begin with the game, register yourself and your partner'
 puts "Press 'Enter' to continue or press '#{EXIT_KEY}' to exit the game"
 
-command = gets.chomp.strip
+command = gets.chomp.to_s.strip
 exit if command == EXIT_KEY
 
 puts ''
