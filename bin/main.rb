@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require_relative '../lib/player'
+require_relative '../lib/game'
+
 EXIT_KEY = 'q'.freeze
 
 def register_player_for(player_name)
@@ -37,17 +40,31 @@ while player_x.downcase == player_o.downcase
   player_o = register_player_for('O')
 end
 
-puts ''
-puts 'Game instructions'
-puts ''
-puts 'Type your desired position from 1 to 9 as shown below'
-puts ''
-puts '***************'
-puts '| |1| |2| |3| |'
-puts '***************'
-puts '| |4| |5| |6| |'
-puts '***************'
-puts '| |7| |8| |9| |'
-puts '***************'
-puts ''
-puts ''
+player_x = Player.new(player_x, 'x')
+player_o = Player.new(player_o, 'o')
+
+game = Game.new(player_x, player_o)
+
+until game.game_over
+  puts game.show_updated_board
+  puts game.current_turn_to_play
+
+  player_selection = gets.chomp.to_i
+
+  until game.make_play(player_selection)
+    puts game.show_updated_board
+    puts 'Choose a valid move, write a non reserved number between 1 to 9'
+    puts ''
+    puts game.current_turn_to_play
+
+    player_selection = gets.chomp.to_i
+  end
+end
+
+if game.someone_won
+  puts game.show_message
+else
+  puts ''
+  puts 'Draw'
+  puts ''
+end
