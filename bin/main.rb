@@ -72,8 +72,7 @@ while game_on
   puts '| |7| |8| |9| |'
   puts '***************'
   puts ''
-  puts 'check for valid move'
-  puts 'check if someone won. Stop play if game_on is false'
+  puts "You're move is valid"
 
   # Logic to check the game goes here
   puts 'if no one won and is not draw continue'
@@ -92,9 +91,8 @@ while game_on
   puts '| |7| |8| |9| |'
   puts '***************'
   puts ''
-  puts 'check for valid move'
-  puts 'check if someone won. Stop play if game_on is false'
-  puts 'game_on is false, stop the game'
+  puts "You're move is valid"
+  puts "You've won the game"
 
   game_on = false
 end
