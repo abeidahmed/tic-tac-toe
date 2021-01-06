@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 require_relative '../lib/board'
 
-#rubocop:disable Metrics/BlockLength
+# rubocop:disable Metrics/BlockLength
 RSpec.describe Board do
   let(:board) { Board.new }
 
