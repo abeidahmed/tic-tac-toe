@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+EXIT_KEY = 'q'.freeze
+
 def register_player_for(player_name)
   puts ''
   puts "Please enter Player #{player_name}'s name"
@@ -21,7 +23,7 @@ puts 'Before we begin with the game, register yourself and your partner'
 puts "Press 'Enter' to continue or press 'q' to exit the game"
 
 command = gets.chomp.strip
-exit if command == 'q'
+exit if command == EXIT_KEY
 
 puts ''
 
