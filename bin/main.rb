@@ -29,15 +29,15 @@ exit if command == EXIT_KEY
 
 puts ''
 
-player_x = register_player_for('X')
+player_x = register_player_for('x')
 puts ''
-player_o = register_player_for('O')
+player_o = register_player_for('o')
 
 while player_x.downcase == player_o.downcase
   puts ''
   puts "Players should have different names. Enter a different name for 'Player O'"
   puts ''
-  player_o = register_player_for('O')
+  player_o = register_player_for('o')
 end
 
 player_x = Player.new(player_x, 'x')
@@ -53,6 +53,7 @@ until game.game_over
 
   until game.make_play(player_selection)
     puts game.show_updated_board
+    puts ''
     puts 'Choose a valid move, write a non reserved number between 1 to 9'
     puts ''
     puts game.current_turn_to_play
@@ -65,6 +66,6 @@ if game.someone_won
   puts game.show_message
 else
   puts ''
-  puts 'Draw'
+  puts 'The game ended is a Draw'
   puts ''
 end

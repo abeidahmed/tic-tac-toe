@@ -15,9 +15,9 @@ class Game
 
   def current_turn_to_play
     if @board.player_x_turn
-      "#{player_x}'s turn (x)"
+      "\n#{player_x}'s turn (x): "
     else
-      "#{player_o}'s turn (o)"
+      "\n#{player_o}'s turn (o): "
     end
   end
 
