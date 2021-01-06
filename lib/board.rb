@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Board
   attr_reader :player_x_turn
 
@@ -20,9 +18,11 @@ class Board
     if player_x_turn
       mark_it_for(coord, with: 'x')
       @player_x_selections << selection
+      check_winner(@player_x_selections)
     else
       mark_it_for(coord, with: 'o')
       @player_o_selections << selection
+      check_winner(@player_o_selections)
     end
 
     swap_turn
@@ -47,6 +47,20 @@ class Board
     else
       [2, selection - 7]
     end
+  end
+
+  def check_winner(player_selections)
+    winning_patterns = %w[123 147 159 357 369 258 789 456]
+
+    winning_patterns.each do |pattern|
+      win_reg = Regexp.new("((?=.*#{pattern[0]})(?=.*#{pattern[1]})(?=.*#{pattern[2]}))")
+      if win_reg.match?(player_selections.join)
+        @game_over = true
+        return true
+      end
+    end
+
+    false
   end
 
   def valid_play?(selection)

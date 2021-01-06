@@ -51,5 +51,15 @@ RSpec.describe Board do
       expect(board.instance_variable_get(:@board)).to match_array([['o', 2, 3], [4, 5, 6], [7, 8, 9]])
       expect(board.instance_variable_get(:@player_o_selections)).to match_array([1])
     end
+
+    it 'sets @game_over to true if there is a win pattern' do
+      board.play_turn_and_swap(1) # x turn
+      board.play_turn_and_swap(4) # y turn
+      board.play_turn_and_swap(2) # x turn
+      board.play_turn_and_swap(5) # y turn
+      board.play_turn_and_swap(3) # x turn
+
+      expect(board.instance_variable_get(:@game_over)).to be_truthy
+    end
   end
 end
