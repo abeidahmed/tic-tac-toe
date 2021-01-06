@@ -20,7 +20,7 @@ puts ''
 puts 'Welcome to Tic Tac Toe'
 puts ''
 puts 'Before we begin with the game, register yourself and your partner'
-puts "Press 'Enter' to continue or press 'q' to exit the game"
+puts "Press 'Enter' to continue or press '#{EXIT_KEY}' to exit the game"
 
 command = gets.chomp.strip
 exit if command == EXIT_KEY
