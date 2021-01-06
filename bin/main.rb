@@ -51,3 +51,50 @@ puts '| |7| |8| |9| |'
 puts '***************'
 puts ''
 puts ''
+
+### game flow
+game_on = true
+
+while game_on
+  print "#{player_x}'s turn : "
+
+  player_x_turn = gets.chomp # get player turn
+
+  puts "#{player_x} plays #{player_x_turn}"
+  puts ''
+  # show updated board
+  puts '--------UPDATED BOARD WILL SHOW HERE INSTEAD OF THE DEMO-------'
+  puts '***************'
+  puts '| |1| |2| |3| |'
+  puts '***************'
+  puts '| |4| |5| |6| |'
+  puts '***************'
+  puts '| |7| |8| |9| |'
+  puts '***************'
+  puts ''
+  puts 'check for valid move'
+  puts 'check if someone won. Stop play if game_on is false'
+
+  # Logic to check the game goes here
+  puts 'if no one won and is not draw continue'
+  puts ''
+  print "#{player_o}'s turn : "
+
+  player_o_turn = gets.chomp
+
+  puts "#{player_o} plays #{player_o_turn}"
+  puts ''
+  puts '***************'
+  puts '| |1| |2| |3| |'
+  puts '***************'
+  puts '| |4| |5| |6| |'
+  puts '***************'
+  puts '| |7| |8| |9| |'
+  puts '***************'
+  puts ''
+  puts 'check for valid move'
+  puts 'check if someone won. Stop play if game_on is false'
+  puts 'game_on is false, stop the game'
+
+  game_on = false
+end
