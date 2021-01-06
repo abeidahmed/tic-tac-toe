@@ -75,7 +75,6 @@ while game_on
   puts "You're move is valid"
 
   # Logic to check the game goes here
-  puts 'if no one won and is not draw continue'
   puts ''
   print "#{player_o}'s turn : "
 
