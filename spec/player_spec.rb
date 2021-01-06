@@ -7,7 +7,7 @@ RSpec.describe Player do
       subject(:player) { Player.new('John') }
 
       it 'sets the @player and @mark instance variables' do
-        expect(player.instance_variable_get(:@player)).to eq('John')
+        expect(player.instance_variable_get(:@name)).to eq('John')
         expect(player.instance_variable_get(:@mark)).to eq('x')
       end
     end

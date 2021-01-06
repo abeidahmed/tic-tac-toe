@@ -1,10 +1,10 @@
 class Player
   PLAYER_MARKS = %w[x o].freeze
 
-  attr_reader :mark, :player
+  attr_reader :mark, :name
 
-  def initialize(player, mark = 'x')
-    @player = player
+  def initialize(name, mark = 'x')
+    @name = name
     @mark = assign_or_fallback_to(mark)
   end
 
