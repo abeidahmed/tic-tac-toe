@@ -6,7 +6,7 @@ require_relative '../lib/game'
 EXIT_KEY = 'q'.freeze
 
 def register_player_for(player_name)
-  puts "Please enter Player #{player_name}'s name"
+  puts "✨ Please enter Player #{player_name}'s name ✨"
 
   player_name = gets.chomp.to_s.strip
 
@@ -19,7 +19,7 @@ def register_player_for(player_name)
 end
 
 puts ''
-puts 'Welcome to Tic Tac Toe'
+puts '🙌 Welcome to Tic Tac Toe 🙌'
 puts ''
 puts 'Before we begin with the game, register yourself and your partner'
 puts "Press 'Enter' to continue or press '#{EXIT_KEY}' to exit the game"

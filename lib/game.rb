@@ -15,9 +15,9 @@ class Game
 
   def current_turn_to_play
     if @board.player_x_turn
-      "\n#{player_x}'s turn (x): "
+      "\n#{player_x}'s turn (❌): "
     else
-      "\n#{player_o}'s turn (o): "
+      "\n#{player_o}'s turn (⭕): "
     end
   end
 
@@ -46,7 +46,7 @@ class Game
   def win_message(game_over)
     return unless game_over
 
-    @show_message = @board.player_x_turn ? "#{player_o} won" : "#{player_x} won"
+    @show_message = @board.player_x_turn ? "#{player_o} won the game 😍🎉‍" : "#{player_x} won the game 😍🎉‍"
   end
 
   def show_updated_board
