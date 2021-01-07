@@ -1,6 +1,6 @@
 # TicTacToe
 
-> This is the ruby version of the popular tic-tac-toe game.
+> This is the ruby implementation of the popular TicTacToe game.
 
 ## What is TicTacToe?
 
