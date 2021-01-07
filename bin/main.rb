@@ -1,97 +1,71 @@
 #!/usr/bin/env ruby
 
+require_relative '../lib/player'
+require_relative '../lib/game'
+
 EXIT_KEY = 'q'.freeze
 
 def register_player_for(player_name)
-  puts "Please enter Player #{player_name}'s name"
+  puts "✨ Please enter Player #{player_name}'s name ✨"
 
-  player_name = gets.chomp.strip
+  player_name = gets.chomp.to_s.strip
 
   while player_name.empty?
     puts 'Please enter a valid name'
-    player_name = gets.chomp
+    player_name = gets.chomp.to_s
   end
 
   player_name
 end
 
 puts ''
-puts 'Welcome to Tic Tac Toe'
+puts '🙌 Welcome to Tic Tac Toe 🙌'
 puts ''
 puts 'Before we begin with the game, register yourself and your partner'
 puts "Press 'Enter' to continue or press '#{EXIT_KEY}' to exit the game"
 
-command = gets.chomp.strip
+command = gets.chomp.to_s.strip
 exit if command == EXIT_KEY
 
 puts ''
 
-player_x = register_player_for('X')
+player_x = register_player_for('x')
 puts ''
-player_o = register_player_for('O')
+player_o = register_player_for('o')
 
 while player_x.downcase == player_o.downcase
   puts ''
   puts "Players should have different names. Enter a different name for 'Player O'"
   puts ''
-  player_o = register_player_for('O')
+  player_o = register_player_for('o')
 end
 
-puts ''
-puts 'Game instructions'
-puts ''
-puts 'Type your desired position from 1 to 9 as shown below'
-puts ''
-puts '***************'
-puts '| |1| |2| |3| |'
-puts '***************'
-puts '| |4| |5| |6| |'
-puts '***************'
-puts '| |7| |8| |9| |'
-puts '***************'
-puts ''
-puts ''
+player_x = Player.new(player_x, 'x')
+player_o = Player.new(player_o, 'o')
 
-### game flow
-game_on = true
+game = Game.new(player_x, player_o)
 
-while game_on
-  print "#{player_x}'s turn : "
+until game.game_over
+  puts game.show_updated_board
+  puts game.current_turn_to_play
 
-  player_x_turn = gets.chomp # get player turn
+  player_selection = gets.chomp.to_i
 
-  puts "#{player_x} plays #{player_x_turn}"
+  until game.make_play(player_selection)
+    puts game.show_updated_board
+    puts ''
+    puts 'Choose a valid move, write a non reserved number between 1 to 9'
+    puts ''
+    puts game.current_turn_to_play
+
+    player_selection = gets.chomp.to_i
+  end
+end
+
+if game.someone_won
+  puts game.show_message
+else
   puts ''
-  # show updated board
-  puts '--------UPDATED BOARD WILL SHOW HERE INSTEAD OF THE DEMO-------'
-  puts '***************'
-  puts '| |1| |2| |3| |'
-  puts '***************'
-  puts '| |4| |5| |6| |'
-  puts '***************'
-  puts '| |7| |8| |9| |'
-  puts '***************'
+  puts 'The game ended is a Draw'
   puts ''
-  puts "You're move is valid"
-
-  # Logic to check the game goes here
-  puts ''
-  print "#{player_o}'s turn : "
-
-  player_o_turn = gets.chomp
-
-  puts "#{player_o} plays #{player_o_turn}"
-  puts ''
-  puts '***************'
-  puts '| |1| |2| |3| |'
-  puts '***************'
-  puts '| |4| |5| |6| |'
-  puts '***************'
-  puts '| |7| |8| |9| |'
-  puts '***************'
-  puts ''
-  puts "You're move is valid"
-  puts "You've won the game"
-
-  game_on = false
 end
