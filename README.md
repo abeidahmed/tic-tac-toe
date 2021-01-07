@@ -34,6 +34,7 @@ Tic-tac-toe (American English), noughts and crosses (Commonwealth English), or X
 - Enter any number from 1 to 9.
 - Player turns are switched between you and your friend until and unless the game finishes.
 - The game finishes when either you or your friend wins, or results in a draw.
+- A player wins if the mark (x or o) is horizontally, vertically or diagonally aligned.
 - That is it. Enjoy playing.
 
 ## Built with
