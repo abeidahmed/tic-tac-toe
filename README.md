@@ -53,6 +53,12 @@ Tic-tac-toe (American English), noughts and crosses (Commonwealth English), or X
 
 Contributions, issues, and feature requests are welcome!
 
+- Fork the project
+- Create your feature branch `git checkout -b awesome-feature`
+- Commit your changes `git commit -m 'Awesome feature'`
+- Push it `git push -u origin awesome-feature`
+- Open a pull request using this branch
+
 ## Show your support
 
 Give a ⭐️ if you like this project!
