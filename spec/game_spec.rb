@@ -11,13 +11,31 @@ RSpec.describe Game do
   let(:game) { Game.new(player_x, player_o) }
 
   describe '#initialize' do
-    it 'sets the necessary instance variables' do
+    it 'sets @player_x to name of the player 1' do
       expect(game.instance_variable_get(:@player_x)).to eq('John')
+    end
+
+    it 'sets @player_o to name of the player 2' do
       expect(game.instance_variable_get(:@player_o)).to eq('Maggie')
+    end
+
+    it 'sets @board to an instance of Board' do
       expect(game.instance_variable_get(:@board)).to be_a(Board)
+    end
+
+    it 'sets @total_rounds to eq 0' do
       expect(game.instance_variable_get(:@total_rounds)).to be_zero
+    end
+
+    it 'sets @game_over to board.game_over' do
       expect(game.instance_variable_get(:@game_over)).to eq(board.game_over)
+    end
+
+    it 'sets @someone_won to false' do
       expect(game.instance_variable_get(:@someone_won)).to eq(false)
+    end
+
+    it 'sets @show_message to empty string' do
       expect(game.instance_variable_get(:@show_message)).to eq('')
     end
   end
@@ -35,12 +53,18 @@ RSpec.describe Game do
       expect(game.instance_variable_get(:@total_rounds)).to eq(1)
     end
 
-    it 'should set @game_over to true and @someone_won to false if it was a draw' do
+    it 'sets someone_won to false if it was draw' do
+      game.instance_variable_set(:@total_rounds, 8)
+      game.make_play(1)
+
+      expect(game.instance_variable_get(:@someone_won)).to be_falsy
+    end
+
+    it 'should set @game_over to true if it was a draw' do
       game.instance_variable_set(:@total_rounds, 8)
       game.make_play(1)
 
       expect(game.instance_variable_get(:@game_over)).to be_truthy
-      expect(game.instance_variable_get(:@someone_won)).to be_falsy
     end
   end
 

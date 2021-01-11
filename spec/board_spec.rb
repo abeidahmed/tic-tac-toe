@@ -6,11 +6,23 @@ RSpec.describe Board do
   let(:board) { Board.new }
 
   describe '#initialize' do
-    it 'should set the initial instance variables' do
+    it 'sets the @board to the required array' do
       expect(board.instance_variable_get(:@board)).to eq([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+    end
+
+    it 'sets the @player_x_turn to true' do
       expect(board.instance_variable_get(:@player_x_turn)).to eq(true)
+    end
+
+    it 'sets the @game_over to false' do
       expect(board.instance_variable_get(:@game_over)).to eq(false)
+    end
+
+    it 'sets the @player_x_selections to an empty array' do
       expect(board.instance_variable_get(:@player_x_selections)).to match_array([])
+    end
+
+    it 'sets the @player_o_selections to an empty array' do
       expect(board.instance_variable_get(:@player_o_selections)).to match_array([])
     end
   end
@@ -41,7 +53,6 @@ RSpec.describe Board do
       board.instance_variable_set(:@player_x_turn, true)
       board.play_turn_and_swap(1)
 
-      expect(board.instance_variable_get(:@board)).to match_array([['x', 2, 3], [4, 5, 6], [7, 8, 9]])
       expect(board.instance_variable_get(:@player_x_selections)).to match_array([1])
     end
 
@@ -49,7 +60,6 @@ RSpec.describe Board do
       board.instance_variable_set(:@player_x_turn, false)
       board.play_turn_and_swap(1)
 
-      expect(board.instance_variable_get(:@board)).to match_array([['o', 2, 3], [4, 5, 6], [7, 8, 9]])
       expect(board.instance_variable_get(:@player_o_selections)).to match_array([1])
     end
 

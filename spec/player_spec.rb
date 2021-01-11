@@ -6,8 +6,11 @@ RSpec.describe Player do
     context 'when the player does not set the mark' do
       subject(:player) { Player.new('John') }
 
-      it 'sets the @player and @mark instance variables' do
+      it 'sets the player @name' do
         expect(player.instance_variable_get(:@name)).to eq('John')
+      end
+
+      it 'sets the @mark instance variables' do
         expect(player.instance_variable_get(:@mark)).to eq('x')
       end
     end
