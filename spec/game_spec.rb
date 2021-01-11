@@ -82,13 +82,11 @@ RSpec.describe Game do
     it 'shows the updated board after player plays the turn' do
       game.make_play(1)
 
-      # rubocop:disable Style/StringConcatenation
       expect(game.show_updated_board).to eq(
         "\n| |x| |2| |3| |\n"\
         "***************\n" + "| |4| |5| |6| |\n"\
         "***************\n" + "| |7| |8| |9| |\n"
       )
-      # rubocop:enable Style/StringConcatenation
     end
   end
 end
