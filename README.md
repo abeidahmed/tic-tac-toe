@@ -56,12 +56,6 @@ Tic-tac-toe (American English), noughts and crosses (Commonwealth English), or X
 - Twitter: [@iamhawaabi](https://twitter.com/iamhawaabi)
 - LinkedIn: [Abeid Ahmed](https://www.linkedin.com/in/abeid-ahmed-b21882172/)
 
-👤 **john**
-
-- GitHub: [@juduak\_](https://github.com/udberg_)
-- Twitter: [@juduak\_](https://twitter.com/juduak)
-- LinkedIn: [Uduak John](https://www.linkedin.com/in/uduak-john-090059105)
-
 ## Contributing
 
 Contributions, issues, and feature requests are welcome!
