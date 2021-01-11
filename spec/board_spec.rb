@@ -73,5 +73,19 @@ RSpec.describe Board do
       expect(board.instance_variable_get(:@game_over)).to be_truthy
     end
   end
+
+  describe '#print_board' do
+    it 'prints out the updated board' do
+      board.instance_variable_set(:@board, [['x', 2, 3], [4, 5, 6], [7, 8, 9]])
+
+      # rubocop:disable Style/StringConcatenation
+      expect(board.print_board).to eq(
+        "\n| |x| |2| |3| |\n"\
+        "***************\n" + "| |4| |5| |6| |\n"\
+        "***************\n" + "| |7| |8| |9| |\n"
+      )
+      # rubocop:enable Style/StringConcatenation
+    end
+  end
 end
 # rubocop:enable Metrics/BlockLength
