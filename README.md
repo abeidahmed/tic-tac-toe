@@ -11,6 +11,7 @@ Tic-tac-toe (American English), noughts and crosses (Commonwealth English), or X
 ## Table of contents
 
 - [Setup](#setup)
+- [Test](#test)
 - [Game instructions](#game-instructions)
 - [Built with](#built-with)
 - [Authors](#authors)
@@ -25,6 +26,12 @@ Tic-tac-toe (American English), noughts and crosses (Commonwealth English), or X
 - Run `git checkout -b development`
 - Next run `git pull origin development`
 - Finally, run `bin/main.rb` or `ruby bin/main.rb`
+
+## Test
+
+- Setup the project by following the above steps
+- Run `bundle exec guard` to automatically run the `spec` files on file change, or
+- Run `bundle exec rspec spec/*{filename}` to run the `spec`s manually
 
 ## Game instructions
 
@@ -48,6 +55,12 @@ Tic-tac-toe (American English), noughts and crosses (Commonwealth English), or X
 - GitHub: [@abeidahmed](https://github.com/abeidahmed)
 - Twitter: [@iamhawaabi](https://twitter.com/iamhawaabi)
 - LinkedIn: [Abeid Ahmed](https://www.linkedin.com/in/abeid-ahmed-b21882172/)
+
+👤 **john**
+
+- GitHub: [@juduak\_](https://github.com/udberg_)
+- Twitter: [@juduak\_](https://twitter.com/juduak)
+- LinkedIn: [Uduak John](https://www.linkedin.com/in/uduak-john-090059105)
 
 ## Contributing
 
